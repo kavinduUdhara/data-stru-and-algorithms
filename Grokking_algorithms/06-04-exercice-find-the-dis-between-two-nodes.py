@@ -16,12 +16,13 @@ def findShortestDisBetween(node1, node2):
         queue += [(node1, 0, [node1])]
         while queue:
             node, dis, root = queue.popleft()
-            if node == node2:
-                print(f"shortest dis. from {node1} to {node2} is: {dis}, with root: {root}")
-                return True
-            else:
-                checked.add(node)
-                queue += [(subNode, dis + 1, root + [subNode]) for subNode in graph[node]]
+            if node not in checked:
+                if node == node2:
+                    print(f"shortest dis. from {node1} to {node2} is: {dis}, with root: {root}")
+                    return True
+                else:
+                    checked.add(node)
+                    queue += [(subNode, dis + 1, root + [subNode]) for subNode in graph[node]]
         return False
 
 findShortestDisBetween("cab", "bat")
