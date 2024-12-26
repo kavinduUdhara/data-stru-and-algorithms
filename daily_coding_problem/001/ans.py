@@ -1,5 +1,5 @@
 #time complexity: O(n²)
-def findAddUpNums(list, k):
+def findAddUpNums(list:list, k:int) -> bool:
     for i in list:
         for j in list:
             if i + j == k:
@@ -8,7 +8,7 @@ def findAddUpNums(list, k):
     return False
 
 #time complexity: O(n)
-def findAddUpNums1(list, k):
+def findAddUpNums1(list:list, k:int) -> bool:
     list = set(list)
     for i in list:
         if k - i in list:
